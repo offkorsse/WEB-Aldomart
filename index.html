@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALDOMART</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="nav-logo">ALDOMART</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Shop</a></li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Editorial</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+      </button>
+      <button aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Aneka Perlengakapan</h1>
+    <p>Menyediakan berbagai macam kebutuhan rumah</p>
+  </header>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="filter-tags">
+      <button class="tag active">All items</button>
+      <button class="tag">kategori_1</button>
+      <button class="tag">kategori_2</button>
+      <button class="tag">kategori_3</button>
+      <button class="tag">kategori_4</button>
+    </div>
+    <div class="sort-filter">
+      <button class="sort-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="14" y2="12"/>
+          <line x1="4" y1="18" x2="9" y2="18"/>
+        </svg>
+        Filter
+      </button>
+      <button class="sort-btn">
+        Sort by
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- PRODUCT GRID -->
+  <main class="grid" id="productGrid">
+
+    <div class="product-card" data-category="kategori_1">
+      <div class="product-img">
+        <img src="https://i.pinimg.com/736x/9d/1a/86/9d1a867cac3d2757cda8110e8fcf69eb.jpg" alt="oguri">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Oguri</div>
+          <div class="product-material">Bonus Car</div>
+        </div>
+        <div class="product-price">$1,850</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kategori_1">
+      <div class="product-img">
+        <img src="https://i.pinimg.com/736x/a9/30/0c/a9300cd464642750765e47c9c9d3ee04.jpg" alt="suzuka">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Suzuka</div>
+          <div class="product-material">Bonus Car</div>
+        </div>
+        <div class="product-price">$420</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kategori_2">
+      <div class="product-img">
+        <img src="https://i.pinimg.com/736x/53/db/62/53db62be38ac7f72d4c282aaafde4d99.jpg" alt="gold">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Gold Family</div>
+          <div class="product-material">Masukan Teks</div>
+        </div>
+        <div class="product-price">$290</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kategori_2">
+      <div class="product-img">
+        <img src="https://i.pinimg.com/736x/dd/9f/03/dd9f03d236cbf432fac9eb3d31058dce.jpg" alt="Uumas">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Goated</div>
+          <div class="product-material">Masukan teks</div>
+        </div>
+        <div class="product-price">$1,200</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kategori_3">
+      <div class="product-img">
+        <img src="https://i.pinimg.com/webp85/736x/98/76/db/9876db62377b21eaff0909c8188393fa.webp" alt="lockhead">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Lockhead</div>
+          <div class="product-material">Missile? what a nice fireworks</div>
+        </div>
+        <div class="product-price">$185</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kategori_4">
+      <div class="product-img">
+        <img src="https://i.pinimg.com/736x/51/b3/d7/51b3d7d2e6d7ba2d2f85ccd23b93634c.jpg" alt="Su">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">SU-33</div>
+          <div class="product-material">Lets dance</div>
+        </div>
+        <div class="product-price">$760</div>
+      </div>
+    </div>
+<div class="product-card" data-category="kategori_4">
+      <div class="product-img">
+        <img src="https://i.pinimg.com/736x/1b/1e/ae/1b1eaec6336a1c4ce50701613e7e364b.jpg" alt="Su">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Hornet</div>
+          <div class="product-material">Dont play-play</div>
+        </div>
+        <div class="product-price">$760</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- LOAD MORE -->
+  <div class="load-more-section">
+    <p class="showing-text" id="showingText">Showing 7 of 24 items</p>
+    <div class="divider"></div>
+    <button class="load-more-btn" id="loadMoreBtn">Load more</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">ALdomart</span>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Shipping &amp; Returns</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2024 Essentials. Purity in Design.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
