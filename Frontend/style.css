@@ -1,104 +1,219 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALDOMART</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    /* ── Reset & Base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-  <a href="#" class="logo">
-    <span class="logo-text">Alfagift</span>
-  </a>
+    :root {
+      --red:      #e8192c;
+      --red-dark: #c0121f;
+      --yellow:   ;
+      --bg:       #f4f5f7;
+      --white:    #ffffff;
+      --text:     #222222;
+      --muted:    #888888;
+      --border:   #e0e0e0;
+      --shadow:   0 2px 12px rgba(0,0,0,.08);
+      --radius:   12px;
+      --font:     'Nunito', sans-serif;
+  
+    }
 
-  <button class="btn-kategori">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-    Kategori
-  </button>
-
-  <div class="search-wrap">
-    <input class="search-input" type="text" placeholder="Temukan produk favoritmu disini" />
-    <button class="search-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-    </button>
-  </div>
-  <button class="cart-btn">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="#555"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.17 14.75l.03-.12.9-1.63H15.55c.75 0 1.41-.41 1.75-1.03L20.88 5H5.21L4 2H1v2h2l3.6 7.59L5.25 14c-.16.28-.25.61-.25.94C5 16.1 5.9 17 7 17h12v-2H7.42c-.13 0-.25-.11-.25-.25z"/></svg>
-  </button>
-
-  <button class="btn-auth btn-daftar">Daftar</button>
-  <button class="btn-auth btn-masuk">Masuk</button>
-</nav>
-
-<!-- Main Content -->
-<main>
-
-  <!-- Section 1 -->
-  <h2 class="section-title">Produk Pilihan</h2>
-  <div class="product-grid" id="productGrid"></div>
-
-  <div class="see-more-wrap">
-    <a href="#" class="see-more">
-      Lihat Selengkapnya
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-    </a>
-  </div>
-
-  <!-- Section 2: Produk Terbaru -->
-  <h2 class="section-title">Produk Terbaru</h2>
-  <div class="product-grid" id="productGrid2"></div>
-
-    <!-- FOOTER -->
-
-</main>
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
 
 
+    /* ── Navbar ───────────────────────────────────────── */
+    .navbar {
+      background: var(--white);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--red);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--red);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      font-size: 18px;
+    }
 
-<script>  const products = [
-    { name: "Minute Maid Pulpy Minuman Jus Buah 350 ml", price: "Rp 6.900", cat: "Minuman Ringan", emoji: "🍊" },
-    { name: "Fruit Tea Minuman Teh Freeze 350 ml",        price: "Rp 4.500", cat: "Minuman Teh",   emoji: "🍵" },
-    { name: "Nutriboost Minuman Susu Rasa Stroberi 200 ml", price: "Rp 7.700", cat: "Minuman",   emoji: "🍓" },
-    { name: "mentos Permen Rainbow Roll 37 g",            price: "Rp 4.800", cat: "Permen",        emoji: "🍬" },
-    { name: "mentos Permen Mint Roll 37 g",               price: "Rp 4.800", cat: "Permen",        emoji: "🌿" },
-    { name: "ABC Minuman Sari Kacang Hijau 250 ml",       price: "Rp 5.800", cat: "Minuman Ringan", emoji: "🫘" },
-  ];
+    .btn-kategori {
+      display: flex; align-items: center; gap: 6px;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font); font-size: 14px; font-weight: 700;
+      color: var(--text); padding: 8px 12px;
+      border-radius: 8px; transition: background .15s;
+      white-space: nowrap;
+    }
+    .btn-kategori:hover { background: var(--bg); }
 
-  const newProducts = [
-    { name: "Safety Vision Snack Crackers 85 g",         price: "Rp 8.500",  cat: "Snack",         emoji: "🥨" },
-    { name: "Topping Almond Premium Pack 100 g",          price: "Rp 22.000", cat: "Makanan",       emoji: "🌰" },
-    { name: "Coca-Cola Zero Sugar 330 ml",                price: "Rp 7.000",  cat: "Minuman",       emoji: "🥤" },
-    { name: "Derma Angel Skin Gel 50 ml",                 price: "Rp 14.000", cat: "Kecantikan",    emoji: "💆" },
-    { name: "Rexona Men Active Sport 150 ml",             price: "Rp 21.000", cat: "Perawatan",     emoji: "🧴" },
-    { name: "Nivea Moisturizing Lotion 200 ml",           price: "Rp 35.000", cat: "Kecantikan",    emoji: "🪷" },
-  ];
+    .search-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .search-wrap:focus-within { border-color: var(--red); }
+    .search-input {
+      flex: 1; border: none; background: transparent;
+      padding: 10px 14px; font-family: var(--font);
+      font-size: 14px; outline: none; color: var(--text);
+    }
+    .search-btn {
+      background: var(--red); border: none; cursor: pointer;
+      padding: 10px 16px; display: grid; place-items: center;
+      transition: background .15s;
+    }
+    .search-btn:hover { background: var(--red-dark); }
+    .search-btn svg { color: white; }
 
-  function renderCards(list, containerId) {
-    const el = document.getElementById(containerId);
-    el.innerHTML = list.map(p => `
-      <div class="product-card">
-        <div class="card-img-wrap">
-          <div class="ribbon"></div>
-          <div style="font-size:72px;line-height:1">${p.emoji}</div>
-          <div class="badge">${p.cat}</div>
-        </div>
-        <div class="card-body">
-          <div class="card-name">${p.name}</div>
-          <div class="card-price">${p.price}</div>
-          <div class="delivery-tag">
-          </div>
-          <button class="btn-beli">Beli</button>
-        </div>
-      </div>
-    `).join('');
-  }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-link {
+      font-size: 14px; font-weight: 700; padding: 8px 14px;
+      border-radius: 8px; text-decoration: none; color: var(--text);
+      transition: background .15s; white-space: nowrap;
+    }
+    .nav-link:hover { background: var(--bg); }
 
-  renderCards(products, 'productGrid');
-  renderCards(newProducts, 'productGrid2');
-  </script>
-</body>
-</html>
+    .cart-btn {
+      background: none; border: 2px solid var(--border);
+      border-radius: 8px; padding: 7px; cursor: pointer;
+      display: grid; place-items: center; transition: border-color .15s;
+    }
+    .cart-btn:hover { border-color: var(--red); }
+
+    .btn-auth {
+      padding: 8px 18px; border-radius: 8px; font-family: var(--font);
+      font-size: 14px; font-weight: 700; cursor: pointer; border: none;
+      transition: .15s;
+    }
+    .btn-daftar {
+      background: var(--white); border: 2px solid var(--red);
+      color: var(--red);
+    }
+    .btn-daftar:hover { background: #fff0f1; }
+    .btn-masuk { background: var(--red); color: white; }
+    .btn-masuk:hover { background: var(--red-dark); }
+
+    /* ── Main ─────────────────────────────────────────── */
+    main { max-width: 1280px; margin: 0 auto; padding: 28px 20px; }
+
+    /* ── Section Title ────────────────────────────────── */
+    .section-title {
+      font-size: 18px; font-weight: 800;
+      margin-bottom: 18px; color: var(--text);
+    }
+
+    /* ── Product Grid ─────────────────────────────────── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform .18s, box-shadow .18s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.13);
+    }
+
+    /* image area */
+    .card-img-wrap {
+      position: relative;
+      background: #fafafa;
+      padding: 20px;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 170px;
+    }
+    .card-img-wrap img {
+      max-height: 130px; max-width: 100%;
+      object-fit: contain;
+      transition: transform .25s;
+    }
+    .product-card:hover .card-img-wrap img { transform: scale(1.06); }
+
+    /* category badge */
+    .badge {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: var(--red);
+      color: white; font-size: 10px; font-weight: 700;
+      text-align: center; padding: 4px 8px;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+
+    /* card body */
+    .card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .card-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .card-price { font-size: 15px; font-weight: 800; color: var(--red); margin-top: 2px; }
+
+    /* instant delivery */
+    .delivery-tag {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; color: #e87516;
+    }
+    .delivery-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #e87516; display: grid; place-items: center;
+      font-size: 8px; color: white; flex-shrink: 0;
+    }
+
+    .btn-beli {
+      margin-top: auto;
+      width: 100%; padding: 9px;
+      background: var(--red); color: white;
+      border: none; border-radius: 8px;
+      font-family: var(--font); font-size: 13px; font-weight: 800;
+      cursor: pointer; transition: background .15s;
+      letter-spacing: .3px;
+    }
+    .btn-beli:hover { background: var(--red-dark); }
+
+    /* ── Lihat Selengkapnya ───────────────────────────── */
+    .see-more-wrap {
+      text-align: center; margin: 8px 0 36px;
+    }
+    .see-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--red); font-weight: 700; font-size: 14px;
+      text-decoration: none; padding: 8px 20px;
+      border: 2px solid var(--red); border-radius: 8px;
+      transition: background .15s;
+    }
+    .see-more:hover { background: #fff0f1; }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      .topbar-links, .nav-links, .btn-daftar { display: none; }
+      .logo-text { display: none; }
+      .navbar { gap: 10px; }
+    }
