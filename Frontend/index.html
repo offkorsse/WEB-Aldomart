@@ -13,7 +13,7 @@
   <!-- NAVBAR -->
   <nav class="navbar">
   <a href="#" class="logo">
-    <span class="logo-text">Alfagift</span>
+    <span class="logo-text">ALDOMART</span>
   </a>
 
   <button class="btn-kategori">
@@ -60,21 +60,21 @@
 
 
 <script>  const products = [
-    { name: "Minute Maid Pulpy Minuman Jus Buah 350 ml", price: "Rp 6.900", cat: "Minuman Ringan", emoji: "🍊" },
-    { name: "Fruit Tea Minuman Teh Freeze 350 ml",        price: "Rp 4.500", cat: "Minuman Teh",   emoji: "🍵" },
-    { name: "Nutriboost Minuman Susu Rasa Stroberi 200 ml", price: "Rp 7.700", cat: "Minuman",   emoji: "🍓" },
-    { name: "mentos Permen Rainbow Roll 37 g",            price: "Rp 4.800", cat: "Permen",        emoji: "🍬" },
-    { name: "mentos Permen Mint Roll 37 g",               price: "Rp 4.800", cat: "Permen",        emoji: "🌿" },
-    { name: "ABC Minuman Sari Kacang Hijau 250 ml",       price: "Rp 5.800", cat: "Minuman Ringan", emoji: "🫘" },
+    { name: "Minute Maid Pulpy Minuman Jus Buah 350 ml", price: "Rp 6.900", cat: "Minuman Ringan", image: "https://i.pinimg.com/736x/3a/43/04/3a4304bea31f34540cfe3e041df5df66.jpg" },
+    { name: "Fruit Tea Minuman Teh Freeze 350 ml",        price: "Rp 4.500", cat: "Minuman Teh",   image: "https://i.pinimg.com/webp85/736x/08/89/2f/08892f4d735b217c578964617b3240e0.webp" },
+    { name: "Nutriboost Minuman Susu Rasa Stroberi 200 ml", price: "Rp 7.700", cat: "Minuman",   image: "https://i.pinimg.com/736x/eb/d1/6e/ebd16e12104c9f9f9eefd4eb6809124d.jpg" },
+    { name: "mentos Permen Rainbow Roll 37 g",            price: "Rp 4.800", cat: "Permen",        image: "https://i.pinimg.com/736x/70/62/ab/7062ab1a7721cb53f9f53612bf3708ff.jpg" },
+    { name: "mentos Permen Mint Roll 37 g",               price: "Rp 4.800", cat: "Permen",        image: "https://i.pinimg.com/736x/03/64/c2/0364c2e664021804b17523013bbb7993.jpg" },
+    { name: "ABC Minuman Sari Kacang Hijau 250 ml",       price: "Rp 5.800", cat: "Minuman Ringan", image: "https://i.pinimg.com/736x/13/0e/2b/130e2bc49b5af8d423117e4cefa3998b.jpg" },
   ];
 
   const newProducts = [
-    { name: "Safety Vision Snack Crackers 85 g",         price: "Rp 8.500",  cat: "Snack",         emoji: "🥨" },
-    { name: "Topping Almond Premium Pack 100 g",          price: "Rp 22.000", cat: "Makanan",       emoji: "🌰" },
-    { name: "Coca-Cola Zero Sugar 330 ml",                price: "Rp 7.000",  cat: "Minuman",       emoji: "🥤" },
-    { name: "Derma Angel Skin Gel 50 ml",                 price: "Rp 14.000", cat: "Kecantikan",    emoji: "💆" },
-    { name: "Rexona Men Active Sport 150 ml",             price: "Rp 21.000", cat: "Perawatan",     emoji: "🧴" },
-    { name: "Nivea Moisturizing Lotion 200 ml",           price: "Rp 35.000", cat: "Kecantikan",    emoji: "🪷" },
+    { name: "Safety Vision Snack Crackers 85 g",         price: "Rp 8.500",  cat: "Snack",         image: "🥨" },
+    { name: "Topping Almond Premium Pack 100 g",          price: "Rp 22.000", cat: "Makanan",       image: "🌰" },
+    { name: "Coca-Cola Zero Sugar 330 ml",                price: "Rp 7.000",  cat: "Minuman",       image: "🥤" },
+    { name: "Derma Angel Skin Gel 50 ml",                 price: "Rp 14.000", cat: "Kecantikan",    image: "💆" },
+    { name: "Rexona Men Active Sport 150 ml",             price: "Rp 21.000", cat: "Perawatan",     image: "🧴" },
+    { name: "Nivea Moisturizing Lotion 200 ml",           price: "Rp 35.000", cat: "Kecantikan",    image: "🪷" },
   ];
 
   function renderCards(list, containerId) {
@@ -83,7 +83,7 @@
       <div class="product-card">
         <div class="card-img-wrap">
           <div class="ribbon"></div>
-          <div style="font-size:72px;line-height:1">${p.emoji}</div>
+          <img src="${p.image}" alt="${p.name}" style="width:100px;height:100px;object-fit:contain;">
           <div class="badge">${p.cat}</div>
         </div>
         <div class="card-body">
