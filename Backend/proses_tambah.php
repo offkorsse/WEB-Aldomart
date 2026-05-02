@@ -10,18 +10,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama_file = $_FILES['image']['name'];
     $tmp_file  = $_FILES['image']['tmp_name'];
     
-    $path = "images/" . time() . "_" . basename($nama_file);
-
+    $dir_target = "gambar/";
+    
+    if (!is_dir($dir_target)) {
+        mkdir($dir_target, 0777, true);
+    }
+    
+    $path = $dir_target . time() . "_" . basename($nama_file); 
+    
     if (move_uploaded_file($tmp_file, $path)) {
         $sql = "INSERT INTO products (name, price, stock, category, image) VALUES ('$name', '$price', '$stock', '$category', '$path')";
         
         if ($conn->query($sql) === TRUE) {
             header("Location: admin.php");
+            exit();
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     } else {
-        echo "Gagal mengupload gambar.";
+        echo "Gagal mengupload gambar. Pastikan folder memiliki izin akses yang benar.";
     }
 }
 ?>
