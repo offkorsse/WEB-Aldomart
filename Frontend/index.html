@@ -71,43 +71,55 @@
 
   function renderCards(list, containerId) {
     const el = document.getElementById(containerId);
-    
-    if (!list || list.length === 0) return; 
+    if (!list || list.length === 0) return;
 
-    el.innerHTML = list.map(p => `
-      <div class="product-card" data-category="${p.cat.toLowerCase().replace(' ', '-')}">
-        <div class="card-img-wrap">
-          <div class="ribbon"></div>
-          <!-- src gambar akan membaca link dari database secara otomatis -->
-          <img src="${p.image}" alt="${p.name}" style="width:100px;height:100px;object-fit:contain;">
-          <div class="badge">${p.cat}</div>
-        </div>
-        <div class="card-body">
-          <div class="card-name">${p.name}</div>
-          <div class="card-price">${p.price}</div>
-          <div class="delivery-tag">
-             <!-- Tambahkan detail pengiriman jika butuh -->
+    el.innerHTML = list.map(p => {
+      
+      let imageUrl = p.image;
+      if (!imageUrl.startsWith('http') && imageUrl.length > 5) {
+        imageUrl = '../Backend/' + imageUrl;
+      }
+
+      let textStok = p.stock !== undefined ? p.stock + " pcs" : "Tersedia";
+
+      return `
+        <div class="product-card" data-category="${p.cat.toLowerCase().replace(' ', '-')}">
+          <div class="card-img-wrap">
+            <div class="ribbon"></div>
+            <!-- Menggunakan variabel imageUrl yang sudah pintar -->
+            <img src="${imageUrl}" alt="${p.name}" style="width:100px;height:100px;object-fit:contain;" onerror="this.src='https://via.placeholder.com/100?text=No+Image'">
+            <div class="badge">${p.cat}</div>
           </div>
-          <button class="btn-beli">Beli</button>
+          <div class="card-body">
+            <div class="card-name">${p.name}</div>
+            <div class="card-price">${p.price}</div>
+            <div class="delivery-tag">
+              <div class="delivery-dot"></div> Stok: ${textStok}
+            </div>
+            <button class="btn-beli">Beli</button>
+          </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   fetch('../Backend/1.php')
-    .then(response => response.json())
-    .then(data => {
-
-      renderCards(data, 'productGrid');
-
+    .then(response => {
+      if (!response.ok) throw new Error('Gagal ambil data');
+      return response.json();
+    })
+    .then(dataDariDatabase => {
+      renderCards(dataDariDatabase, 'productGrid');
+      
       if (typeof updateShowingText === "function") {
         updateShowingText();
       }
     })
     .catch(error => {
-      console.error('Ada masalah saat mengambil database:', error);
+      console.error('Error:', error);
+      document.getElementById('productGrid').innerHTML = '<p style="color:red; text-align:center;">Gagal terhubung ke Database. Pastikan XAMPP menyala.</p>';
     });
-
+  
   renderCards(newProducts, 'productGrid2');
 </script>
   
