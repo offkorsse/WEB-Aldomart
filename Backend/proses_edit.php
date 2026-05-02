@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stock = $_POST['stock'];
     $gambar_lama = $_POST['gambar_lama'];
 
-    // Cek apakah admin mengupload gambar baru
     if ($_FILES['image']['name'] != "") {
         $nama_file = $_FILES['image']['name'];
         $tmp_file  = $_FILES['image']['tmp_name'];
@@ -17,10 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         move_uploaded_file($tmp_file, $path);
         
-        // Update data beserta gambar baru
         $sql = "UPDATE products SET name='$name', category='$category', price='$price', stock='$stock', image='$path' WHERE id='$id'";
     } else {
-        // Jika gambar tidak diganti
         $sql = "UPDATE products SET name='$name', category='$category', price='$price', stock='$stock' WHERE id='$id'";
     }
 
