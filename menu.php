@@ -9,11 +9,14 @@ if (!isset($_SESSION['user'])) {
 }
 
 // ── Ambil produk dari database ─────────────────────────
-$categories    = ["Semua", "Makanan", "Minuman", "Minuman Ringan", "Minuman Teh", "Snack", "Permen", "Kecantikan", "Perawatan"];
-$catIcons      = [
-    "Semua" => "📦", "Makanan" => "🍜", "Minuman" => "🥤",
-    "Minuman Ringan" => "🧃", "Minuman Teh" => "🍵",
-    "Snack" => "🍿", "Permen" => "🍬", "Kecantikan" => "💄", "Perawatan" => "🧼"
+$categories = ['Semua','Makanan','Minuman','Jajanan','Sabun','Lain-lain'];
+$catIcons   = [
+  'Semua'     => '🏪',
+  'Makanan'   => '🍜',
+  'Minuman'   => '🥤',
+  'Jajanan'   => '🍬',
+  'Sabun'     => '🧼',
+  'Lain-lain' => '📦',
 ];
 
 // Tangkap query pencarian dan kategori dari URL (GET)
