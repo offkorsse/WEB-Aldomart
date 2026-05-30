@@ -125,7 +125,7 @@ if (!$data) {
                 <label>Kategori</label>
                 <select name="kategori" required>
                     <?php
-                    $kategori_list = ["Minuman","Minuman Ringan","Minuman Teh","Permen","Snack","Makanan","Kecantikan","Perawatan"];
+                    $kategori_list = ["Makanan","Minuman","Snack","Sabun","Lain-lainnya"];
                     foreach ($kategori_list as $kat) {
                         $selected = ($data['kategori'] == $kat) ? "selected" : "";
                         echo "<option value='" . htmlspecialchars($kat) . "' $selected>" . htmlspecialchars($kat) . "</option>";
