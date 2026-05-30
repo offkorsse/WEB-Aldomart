@@ -111,14 +111,11 @@ include 'auth_check.php'; // proteksi: harus login
                 <label>Kategori</label>
                 <select name="kategori" required>
                     <option value="" disabled selected>-- Pilih Kategori --</option>
-                    <option value="Minuman">Minuman</option>
-                    <option value="Minuman Ringan">Minuman Ringan</option>
-                    <option value="Minuman Teh">Minuman Teh</option>
-                    <option value="Permen">Permen</option>
-                    <option value="Snack">Snack</option>
                     <option value="Makanan">Makanan</option>
-                    <option value="Kecantikan">Kecantikan</option>
-                    <option value="Perawatan">Perawatan</option>
+                    <option value="Minuman">Minuman</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Kecantikan">Sabun</option>
+                    <option value="Perawatan">Lain-lainnya</option>
                 </select>
             </div>
 
