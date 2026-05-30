@@ -114,8 +114,8 @@ include 'auth_check.php'; // proteksi: harus login
                     <option value="Makanan">Makanan</option>
                     <option value="Minuman">Minuman</option>
                     <option value="Snack">Snack</option>
-                    <option value="Kecantikan">Sabun</option>
-                    <option value="Perawatan">Lain-lainnya</option>
+                    <option value="Sabun">Sabun</option>
+                    <option value="Lain-lainnya">Lain-lainnya</option>
                 </select>
             </div>
 
